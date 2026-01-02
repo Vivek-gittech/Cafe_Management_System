@@ -10,6 +10,8 @@ import com.project.Cafe_Management_System.Repository.Menu_itemRepository.Menu_it
 import com.project.Cafe_Management_System.Service.Menu_itemService.Menu_itemService;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class Menu_itemServiceIml implements Menu_itemService {
 
@@ -24,6 +26,9 @@ public class Menu_itemServiceIml implements Menu_itemService {
     }
 
     @Override
+    public List<Menu_itemResponesDto> menu_Get(){
+        return null;
+    }
     public Menu_itemResponesDto menu_Post(Menu_itemDto menu_itemDto){
         System.out.println("Category: "+menu_itemDto.getCategory_id());
         Category category=categoryRepository.findById(menu_itemDto.getCategory_id()).orElseThrow(()->new RuntimeException("Category Not Find"));

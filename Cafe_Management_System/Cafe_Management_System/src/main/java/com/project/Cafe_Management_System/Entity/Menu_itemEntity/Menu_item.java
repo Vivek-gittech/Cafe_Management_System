@@ -6,7 +6,7 @@ import jakarta.persistence.*;
 import java.time.LocalDateTime;
 
 @Entity
-@Table(name = "Menu_item")
+@Table(name = "Menu_items")
 public class Menu_item {
 
     @Id
@@ -16,7 +16,7 @@ public class Menu_item {
     private String item_name;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name="category_name",nullable = false)
+    @JoinColumn(name="category_id",nullable = false)
     private Category category;
 
     @Column(nullable = false)
@@ -29,7 +29,7 @@ public class Menu_item {
     private LocalDateTime created_at;
 
     @Column(nullable = false)
-    private LocalDateTime update_at;
+    private LocalDateTime updated_at;
 
     public int getItem_id() {
         return item_id;
@@ -80,10 +80,10 @@ public class Menu_item {
     }
 
     public LocalDateTime getUpdate_at() {
-        return update_at;
+        return updated_at;
     }
 
     public void setUpdate_at(LocalDateTime update_at) {
-        this.update_at = update_at;
+        this.updated_at = update_at;
     }
 }
