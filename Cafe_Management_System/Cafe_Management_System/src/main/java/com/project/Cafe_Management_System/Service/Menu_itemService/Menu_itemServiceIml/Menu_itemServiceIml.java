@@ -27,14 +27,27 @@ public class Menu_itemServiceIml implements Menu_itemService {
 
     @Override
     public List<Menu_itemResponesDto> menu_Get(){
-        return null;
+        List<Menu_item> menu_item=menu_itemRepository.findAll();
+        return Menu_itemMapper.menu_Get(menu_item);
     }
     public Menu_itemResponesDto menu_Post(Menu_itemDto menu_itemDto){
-        System.out.println("Category: "+menu_itemDto.getCategory_id());
         Category category=categoryRepository.findById(menu_itemDto.getCategory_id()).orElseThrow(()->new RuntimeException("Category Not Find"));
-        System.out.println("Category_id: "+category.getCategory_id());
         Menu_item menu_item=Menu_itemMapper.to_Entity(menu_itemDto,category);
         Menu_item menu_saved=menu_itemRepository.save(menu_item);
         return Menu_itemMapper.to_Dto(menu_saved);
+    }
+    public String menu_Put(Integer id,Menu_itemDto menu_itemDto){
+        Category category=categoryRepository.findById(menu_itemDto.getCategory_id()).orElseThrow(()->new RuntimeException("Category Not Found"));
+        Menu_item menu_item=menu_itemRepository.findById(id).orElseThrow(()->new RuntimeException("Menu Not Found"));
+        Menu_itemMapper.to_Put_Entity(menu_itemDto,menu_item,category);
+        menu_itemRepository.save(menu_item);
+        return id+" Menu Updated Successfully";
+    }
+    public String menu_Delete(Integer id){
+        if(menu_itemRepository.existsById(id)){
+            menu_itemRepository.deleteById(id);
+            return id+" Menu Delete Successfully";
+        }
+        return "Menu Not Found";
     }
 }

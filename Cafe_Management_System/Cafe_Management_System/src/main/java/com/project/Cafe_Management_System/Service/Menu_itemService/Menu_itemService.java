@@ -9,4 +9,6 @@ public interface Menu_itemService {
 
     List<Menu_itemResponesDto> menu_Get();
     Menu_itemResponesDto menu_Post(Menu_itemDto menu_itemDto);
+    String menu_Put(Integer id,Menu_itemDto menu_itemDto);
+    String menu_Delete(Integer id);
 }

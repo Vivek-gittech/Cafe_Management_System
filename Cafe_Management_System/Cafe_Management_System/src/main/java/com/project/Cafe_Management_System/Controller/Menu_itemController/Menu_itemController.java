@@ -25,4 +25,14 @@ public class Menu_itemController {
     public Menu_itemResponesDto menu_Add(@RequestBody Menu_itemDto menu_itemDto){
         return menuitemService.menu_Post(menu_itemDto);
     }
+
+    @PutMapping("/Put/{id}")
+    public String menu_Put(@PathVariable Integer id,@RequestBody Menu_itemDto menu_itemDto){
+        return menuitemService.menu_Put(id,menu_itemDto);
+    }
+
+    @DeleteMapping("/Delete/{id}")
+    public String menu_Delete(@PathVariable Integer id){
+        return menuitemService.menu_Delete(id);
+    }
 }

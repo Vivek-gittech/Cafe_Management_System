@@ -13,13 +13,13 @@ public class Menu_itemDto {
     private String item_name;
 
     @Column(nullable = false)
-    private int category_id;
+    private Integer category_id;
 
     @Column(nullable = false)
-    private double price;
+    private Double price;
 
     @Column(nullable = false)
-    private int stock_quantity;
+    private Integer stock_quantity;
 
     @Column(nullable = false)
     private LocalDateTime created_at;
@@ -43,27 +43,27 @@ public class Menu_itemDto {
         this.item_name = item_name;
     }
 
-    public int getCategory_id() {
+    public Integer getCategory_id() {
         return category_id;
     }
 
-    public void setCategory_id(int category_id) {
+    public void setCategory_id(Integer category_id) {
         this.category_id = category_id;
     }
 
-    public double getPrice() {
+    public Double getPrice() {
         return price;
     }
 
-    public void setPrice(double price) {
+    public void setPrice(Double price) {
         this.price = price;
     }
 
-    public int getStock_quantity() {
+    public Integer getStock_quantity() {
         return stock_quantity;
     }
 
-    public void setStock_quantity(int stock_quantity) {
+    public void setStock_quantity(Integer stock_quantity) {
         this.stock_quantity = stock_quantity;
     }
 
