@@ -5,38 +5,39 @@ import org.springframework.stereotype.Component;
 import java.time.LocalDateTime;
 
 
-@Component
+
 public class OrderDto {
-    private int order_id;
-    private int user_id;
-    private int table_number;
+    private Integer order_id;
+    private Integer user_id;
+    private Integer table_number;
     private String order_status;
-    private double total_number;
+    private Double total_amount;
     private LocalDateTime create_at;
     private LocalDateTime update_at;
 
-    public int getOrder_id() {
+
+    public Integer getOrder_id() {
         return order_id;
     }
 
-    public void setOrder_id(int order_id) {
+    public void setOrder_id(Integer order_id) {
         this.order_id = order_id;
     }
 
-    public int getUser_id() {
+    public Integer getUser_id() {
         return user_id;
     }
 
-    public void setUser_id(int user_id) {
+    public void setUser_id(Integer user_id) {
         this.user_id = user_id;
     }
 
-    public int getTable_number() {
-        return table_number;
+    public void setTable_number(Integer table_number) {
+        this.table_number = table_number;
     }
 
-    public void setTable_number(int table_number) {
-        this.table_number = table_number;
+    public Integer getTable_number() {
+        return table_number;
     }
 
     public String getOrder_status() {
@@ -47,12 +48,12 @@ public class OrderDto {
         this.order_status = order_status;
     }
 
-    public double getTotal_number() {
-        return total_number;
+    public Double getTotal_amount() {
+        return total_amount;
     }
 
-    public void setTotal_number(double total_number) {
-        this.total_number = total_number;
+    public void setTotal_amount(Double total_amount) {
+        this.total_amount = total_amount;
     }
 
     public LocalDateTime getCreate_at() {
