@@ -26,7 +26,7 @@ public class Menu_itemController {
         return menuitemService.menu_Post(menu_itemDto);
     }
 
-    @PutMapping("/Put/{id}")
+    @PutMapping("/Update/{id}")
     public String menu_Put(@PathVariable Integer id,@RequestBody Menu_itemDto menu_itemDto){
         return menuitemService.menu_Put(id,menu_itemDto);
     }
