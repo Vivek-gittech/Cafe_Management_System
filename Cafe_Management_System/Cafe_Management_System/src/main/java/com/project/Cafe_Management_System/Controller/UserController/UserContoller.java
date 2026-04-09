@@ -1,9 +1,11 @@
 package com.project.Cafe_Management_System.Controller.UserController;
 
+import com.project.Cafe_Management_System.Dto.UserDto.DetailsResponesDto;
 import com.project.Cafe_Management_System.Dto.UserDto.UserDto;
 import com.project.Cafe_Management_System.Dto.UserDto.UserResponesDto;
 import com.project.Cafe_Management_System.Service.UserService.UserService;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -41,5 +43,11 @@ public class UserContoller {
     public String Delete_User(@PathVariable Integer id){
         return userService.user_Delete(id);
 
+    }
+
+    @GetMapping("/GetDetails")
+    public ResponseEntity<DetailsResponesDto> getDashBoardDetails(){
+        DetailsResponesDto details=userService.getDashboardDetails();
+        return ResponseEntity.ok(details);
     }
 }

@@ -3,7 +3,7 @@ package com.project.Cafe_Management_System.Entity.CustomerEntity;
 import jakarta.persistence.*;
 
 @Entity
-@Table(name = "customers")
+@Table(name = "Customers")
 public class Customer {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

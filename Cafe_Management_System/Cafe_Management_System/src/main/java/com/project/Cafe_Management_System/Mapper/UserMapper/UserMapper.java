@@ -4,6 +4,7 @@ import com.project.Cafe_Management_System.Dto.UserDto.UserDto;
 import com.project.Cafe_Management_System.Dto.UserDto.UserResponesDto;
 import com.project.Cafe_Management_System.Entity.RoleEntity.Role;
 import com.project.Cafe_Management_System.Entity.UserEntity.User;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
@@ -11,16 +12,16 @@ import java.util.stream.Collectors;
 
 @Component
 public class UserMapper {
+    BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
 
-    public static User toEntity(UserDto userDto, Role role){
+    public User toEntity(UserDto userDto, Role role){
         if(userDto==null){
             return null;
         }
-
         User user=new User();
         user.setName(userDto.getName());
         user.setEmail(userDto.getEmail());
-        user.setPassword(userDto.getPassword());
+        user.setPassword(encoder.encode(userDto.getPassword()));
         user.setRole(role);
         return user;
     }
@@ -30,6 +31,7 @@ public class UserMapper {
         }
 
         UserResponesDto userResDto=new UserResponesDto();
+        userResDto.setUser_id(user.getUser_id());
         userResDto.setName(user.getName());
         userResDto.setEmail(user.getEmail());
 

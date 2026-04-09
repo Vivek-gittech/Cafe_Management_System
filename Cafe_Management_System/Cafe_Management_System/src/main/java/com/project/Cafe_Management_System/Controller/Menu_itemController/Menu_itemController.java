@@ -3,6 +3,7 @@ package com.project.Cafe_Management_System.Controller.Menu_itemController;
 import com.project.Cafe_Management_System.Dto.Menu_itemDto.Menu_itemDto;
 import com.project.Cafe_Management_System.Dto.Menu_itemDto.Menu_itemResponesDto;
 import com.project.Cafe_Management_System.Service.Menu_itemService.Menu_itemService;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.time.LocalDateTime;
@@ -10,6 +11,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/Menu")
+@PreAuthorize("hasAnyRole('Chef', 'Admin')")
 public class Menu_itemController {
     private final Menu_itemService menuitemService;
 

@@ -1,11 +1,21 @@
 package com.project.Cafe_Management_System.Dto.PaymentsDto;
 
+import jakarta.persistence.Column;
+
 import java.time.LocalDateTime;
 
 public class PaymentsDto {
+
+    @Column(nullable = false)
     private int order_id;
+
+    @Column(nullable = false)
     private String payment_method;
-    private double amount;
+
+    @Column(nullable = false)
+    private double amount_paid;
+
+    @Column(nullable = false)
     private LocalDateTime payment_date;
 
     public int getOrder_id() {
@@ -24,12 +34,12 @@ public class PaymentsDto {
         this.payment_method = payment_method;
     }
 
-    public double getAmount() {
-        return amount;
+    public double getAmount_paid() {
+        return amount_paid;
     }
 
-    public void setAmount(double amount) {
-        this.amount = amount;
+    public void setAmount_paid(double amount_paid) {
+        this.amount_paid = amount_paid;
     }
 
     public LocalDateTime getPayment_date() {

@@ -1,18 +1,35 @@
 package com.project.Cafe_Management_System.Dto.OrderDto;
 
-import org.springframework.stereotype.Component;
+import jakarta.persistence.Column;
 
 import java.time.LocalDateTime;
 
 
 
 public class OrderDto {
+
+    @Column(nullable = false)
     private Integer order_id;
-    private Integer user_id;
+
+    @Column(nullable = false)
+    private Integer customer_id;
+
+    @Column(nullable = false)
+    private Integer waiter_id=0;
+
+    @Column(nullable = false)
     private Integer table_number;
-    private String order_status;
+
+    @Column(nullable = false)
+    private String order_status="Pending";
+
+    @Column(nullable = false)
     private Double total_amount;
+
+    @Column(nullable = false)
     private LocalDateTime create_at;
+
+    @Column(nullable = false)
     private LocalDateTime update_at;
 
 
@@ -24,12 +41,20 @@ public class OrderDto {
         this.order_id = order_id;
     }
 
-    public Integer getUser_id() {
-        return user_id;
+    public Integer getCustomer_id() {
+        return customer_id;
     }
 
-    public void setUser_id(Integer user_id) {
-        this.user_id = user_id;
+    public void setCustomer_id(Integer customer_id) {
+        this.customer_id = customer_id;
+    }
+
+    public Integer getWaiter_id() {
+        return waiter_id;
+    }
+
+    public void setWaiter_id(Integer waiter_id) {
+        this.waiter_id = waiter_id;
     }
 
     public void setTable_number(Integer table_number) {

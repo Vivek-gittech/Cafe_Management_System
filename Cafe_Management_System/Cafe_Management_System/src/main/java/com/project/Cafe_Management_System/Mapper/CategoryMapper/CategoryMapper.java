@@ -19,7 +19,6 @@ public class CategoryMapper {
     }
     public static Category to_Entity(CategoryDto categoryDto){
         Category category=new Category();
-        System.out.println("Mapper Class :"+categoryDto.getCategory_name());
         category.setCategory_id(categoryDto.getCategory_id());
         category.setCategory_name(categoryDto.getCategory_name());
         return category;

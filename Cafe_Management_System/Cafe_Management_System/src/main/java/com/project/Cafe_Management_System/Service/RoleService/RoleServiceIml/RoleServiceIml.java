@@ -3,7 +3,6 @@ package com.project.Cafe_Management_System.Service.RoleService.RoleServiceIml;
 import com.project.Cafe_Management_System.Dto.RoleDto.RoleDto;
 import com.project.Cafe_Management_System.Dto.RoleDto.RoleResponesDto;
 import com.project.Cafe_Management_System.Entity.RoleEntity.Role;
-import com.project.Cafe_Management_System.Entity.UserEntity.User;
 import com.project.Cafe_Management_System.Mapper.RoleMapper.RoleMapper;
 import com.project.Cafe_Management_System.Repository.RoleRepository.RoleRepository;
 import com.project.Cafe_Management_System.Service.RoleService.RoleService;

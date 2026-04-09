@@ -3,7 +3,7 @@ package com.project.Cafe_Management_System.Entity.CategoryEntity;
 import jakarta.persistence.*;
 
 @Entity
-@Table(name = "categories")
+@Table(name = "Categories")
 public class Category {
 
     @Id

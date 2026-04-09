@@ -1,14 +1,17 @@
 package com.project.Cafe_Management_System.Controller.OrderController;
 
 import com.project.Cafe_Management_System.Dto.OrderDto.OrderDto;
+import com.project.Cafe_Management_System.Dto.OrderDto.OrderPatchDto;
 import com.project.Cafe_Management_System.Dto.OrderDto.OrderResponesDto;
 import com.project.Cafe_Management_System.Service.OrderService.OrderService;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController
 @RequestMapping("/Order")
+@PreAuthorize("hasAnyRole('Admin','Waiter')")
 public class OrderController {
 
     private final OrderService orderService;
@@ -23,6 +26,12 @@ public class OrderController {
         return orderService.order_Get();
     }
 
+    //Get All Active
+    @GetMapping("/Active/Get")
+    public List<OrderResponesDto> order_Active_Get(){
+        return orderService.orderActiveGet();
+    }
+
     //Insert New Record Order
     @PostMapping("/Post")
     public OrderResponesDto order_Post(@RequestBody OrderDto orderDto) {
@@ -31,9 +40,9 @@ public class OrderController {
 
 
     //Update The Order using id
-    @PutMapping("/Update/{id}")
-    public String order_Put(@PathVariable Integer id,@RequestBody OrderDto orderDto){
-        return orderService.order_Put(id,orderDto);
+    @PatchMapping("/Update/{id}")
+    public String order_Put(@PathVariable Integer id,@RequestBody OrderPatchDto orderPatchDto){
+        return orderService.order_Put(id,orderPatchDto);
     }
 
     //Delete Order Using id

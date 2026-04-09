@@ -9,6 +9,8 @@ public class Menu_itemResponesDto {
     private String category_name;
     private double price;
     private int stock_quantity;
+    private boolean isAvailable;
+    private String imagesUrl;
 
 
     public String getItem_name() {
@@ -41,5 +43,21 @@ public class Menu_itemResponesDto {
 
     public void setStock_quantity(int stock_quantity) {
         this.stock_quantity = stock_quantity;
+    }
+
+    public boolean isAvailable() {
+        return isAvailable;
+    }
+
+    public void setAvailable(boolean available) {
+        isAvailable = available;
+    }
+
+    public String getImagesUrl() {
+        return imagesUrl;
+    }
+
+    public void setImagesUrl(String imagesUrl) {
+        this.imagesUrl = imagesUrl;
     }
 }

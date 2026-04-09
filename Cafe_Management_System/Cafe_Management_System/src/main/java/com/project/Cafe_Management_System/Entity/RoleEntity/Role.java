@@ -1,12 +1,11 @@
 package com.project.Cafe_Management_System.Entity.RoleEntity;
 
-import com.project.Cafe_Management_System.Entity.UserEntity.User;
 import jakarta.persistence.*;
 
-import java.util.List;
+
 
 @Entity
-@Table(name = "roles")
+@Table(name = "Roles")
 public class Role {
 
     @Id

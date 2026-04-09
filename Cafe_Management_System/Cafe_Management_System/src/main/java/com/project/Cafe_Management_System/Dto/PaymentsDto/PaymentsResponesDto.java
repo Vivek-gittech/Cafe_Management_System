@@ -5,7 +5,7 @@ import java.time.LocalDateTime;
 public class PaymentsResponesDto {
     private int order_id;
     private String payment_method;
-    private double amount;
+    private double amount_paid;
     private LocalDateTime payment_date;
 
     public int getOrder_id() {
@@ -24,12 +24,12 @@ public class PaymentsResponesDto {
         this.payment_method = payment_method;
     }
 
-    public double getAmount() {
-        return amount;
+    public double getAmount_paid() {
+        return amount_paid;
     }
 
-    public void setAmount(double amount) {
-        this.amount = amount;
+    public void setAmount_paid(double amount_paid) {
+        this.amount_paid = amount_paid;
     }
 
     public LocalDateTime getPayment_date() {

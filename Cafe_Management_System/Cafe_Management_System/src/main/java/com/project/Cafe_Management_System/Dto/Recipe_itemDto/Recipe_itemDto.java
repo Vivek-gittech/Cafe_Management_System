@@ -1,19 +1,25 @@
 package com.project.Cafe_Management_System.Dto.Recipe_itemDto;
 
+import jakarta.persistence.Column;
+
 public class Recipe_itemDto {
-    private Integer recipe_item_id;
+
+    @Column(nullable = false)
     private Integer item_id;
+
+    @Column(nullable = false)
     private Integer ingredient_id;
+
+    @Column(nullable = false)
     private Integer order_id;
+
+    @Column(nullable = false)
     private Integer order_item_id;
 
-    public Integer getRecipe_item_id() {
-        return recipe_item_id;
-    }
+    @Column(nullable = false)
+    private double quantity_required;
 
-    public void setRecipe_item_id(Integer recipe_item_id) {
-        this.recipe_item_id = recipe_item_id;
-    }
+
 
     public Integer getItem_id() {
         return item_id;
@@ -45,5 +51,13 @@ public class Recipe_itemDto {
 
     public void setOrder_item_id(Integer order_item_id) {
         this.order_item_id = order_item_id;
+    }
+
+    public double getQuantity_required() {
+        return quantity_required;
+    }
+
+    public void setQuantity_required(double quantity_required) {
+        this.quantity_required = quantity_required;
     }
 }

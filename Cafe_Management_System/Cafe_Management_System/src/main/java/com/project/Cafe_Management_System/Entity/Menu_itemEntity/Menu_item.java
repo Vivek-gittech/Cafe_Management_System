@@ -6,7 +6,7 @@ import jakarta.persistence.*;
 import java.time.LocalDateTime;
 
 @Entity
-@Table(name = "Menu_items")
+@Table(name = "Menu_Items")
 public class Menu_item {
 
     @Id
@@ -23,7 +23,13 @@ public class Menu_item {
     private double price;
 
     @Column(nullable = false)
-    private int stock_quantity;
+    private int stockQuantity;
+
+    @Column(nullable = false,columnDefinition = "boolean default true")
+    private boolean isAvailable=true;
+
+    @Column(nullable = false)
+    private String imageUrl;
 
     @Column(nullable = false)
     private LocalDateTime created_at;
@@ -63,12 +69,20 @@ public class Menu_item {
         this.price = price;
     }
 
-    public int getStock_quantity() {
-        return stock_quantity;
+    public int getStockQuantity() {
+        return stockQuantity;
     }
 
-    public void setStock_quantity(int stock_quantity) {
-        this.stock_quantity = stock_quantity;
+    public void setStockQuantity(int stockQuantity) {
+        this.stockQuantity = stockQuantity;
+    }
+
+    public boolean Available() {
+        return isAvailable;
+    }
+
+    public void setAvailable(boolean available) {
+        isAvailable = available;
     }
 
     public LocalDateTime getCreated_at() {
@@ -85,5 +99,13 @@ public class Menu_item {
 
     public void setUpdate_at(LocalDateTime update_at) {
         this.updated_at = update_at;
+    }
+
+    public String getImageUrl() {
+        return imageUrl;
+    }
+
+    public void setImageUrl(String imageUrl) {
+        this.imageUrl = imageUrl;
     }
 }

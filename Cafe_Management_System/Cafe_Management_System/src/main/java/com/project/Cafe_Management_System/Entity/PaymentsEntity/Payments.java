@@ -21,7 +21,7 @@ public class Payments {
     private String payment_method;
 
     @Column(nullable = false)
-    private double amount;
+    private double amount_paid;
 
     @Column(nullable = false)
     private LocalDateTime payment_date;
@@ -50,12 +50,12 @@ public class Payments {
         this.payment_method = payment_method;
     }
 
-    public double getAmount() {
-        return amount;
+    public double getAmount_paid() {
+        return amount_paid;
     }
 
-    public void setAmount(double amount) {
-        this.amount = amount;
+    public void setAmount_paid(double amount_paid) {
+        this.amount_paid = amount_paid;
     }
 
     public LocalDateTime getPayment_date() {

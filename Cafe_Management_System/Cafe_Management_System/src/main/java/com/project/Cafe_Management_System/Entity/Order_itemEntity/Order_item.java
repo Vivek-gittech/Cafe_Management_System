@@ -6,7 +6,7 @@ import jakarta.persistence.*;
 
 
 @Entity
-@Table(name="order_items")
+@Table(name="Order_Items")
 public class Order_item {
 
     @Id
@@ -25,7 +25,7 @@ public class Order_item {
     private int quantity;
 
     @Column(nullable = false)
-    private double price;
+    private double subtotalPrice;
 
     public int getOrder_item_id() {
         return order_item_id;
@@ -59,11 +59,11 @@ public class Order_item {
         this.quantity = quantity;
     }
 
-    public double getPrice() {
-        return price;
+    public double getSubtotalPrice() {
+        return subtotalPrice;
     }
 
-    public void setPrice(double price) {
-        this.price = price;
+    public void setSubtotalPrice(double subtotalPrice) {
+        this.subtotalPrice = subtotalPrice;
     }
 }

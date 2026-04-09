@@ -1,5 +1,6 @@
 package com.project.Cafe_Management_System.Entity.OrderEntity;
 
+import com.project.Cafe_Management_System.Entity.CustomerEntity.Customer;
 import com.project.Cafe_Management_System.Entity.UserEntity.User;
 import jakarta.persistence.*;
 
@@ -14,8 +15,13 @@ public class Order {
     private int Order_id;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name="user_id",nullable = false)
-    private User user;
+    @JoinColumn(name = "customer_id",nullable = false)
+    private Customer customer;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name="waiter_id",nullable = false)
+    private User waiter;
+
 
     @Column(nullable = false)
     private int table_number;
@@ -39,12 +45,20 @@ public class Order {
         Order_id = order_id;
     }
 
-    public User getUser() {
-        return user;
+    public Customer getCustomer() {
+        return customer;
     }
 
-    public void setUser(User user) {
-        this.user = user;
+    public void setCustomer(Customer customer) {
+        this.customer = customer;
+    }
+
+    public User getWaiter() {
+        return waiter;
+    }
+
+    public void setWaiter(User waiter) {
+        this.waiter = waiter;
     }
 
     public int getTable_number() {

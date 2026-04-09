@@ -20,11 +20,11 @@ public class Order_itemMapper {
                 .collect(Collectors.toList());
     }
 
-    public static Order_item to_Entity(Order_itemDto order_itemDto,Menu_item menu_item,Order order){
+    public static Order_item to_Entity(Order_itemDto order_itemDto,Menu_item menu_item,Order order,double subtotal){
         Order_item orderItem=new Order_item();
         orderItem.setMenu_item(menu_item);
         orderItem.setOrder(order);
-        orderItem.setPrice(order_itemDto.getPrice());
+        orderItem.setSubtotalPrice(subtotal);
         orderItem.setQuantity(order_itemDto.getQuantity());
         return orderItem;
     }
@@ -35,7 +35,7 @@ public class Order_itemMapper {
         orderItemResponesDto.setItem_name(order_item.getMenu_item().getItem_name());
         orderItemResponesDto.setOrder_id(order_item.getOrder().getOrder_id());
         orderItemResponesDto.setQuantity(order_item.getQuantity());
-        orderItemResponesDto.setPrice(order_item.getPrice());
+        orderItemResponesDto.setSubtotalPrice(order_item.getSubtotalPrice());
         orderItemResponesDto.setTotal_amount(order_item.getOrder().getTotal_amount());
         return orderItemResponesDto;
     }
@@ -46,11 +46,12 @@ public class Order_itemMapper {
         if(order_itemDto.getOrder_id()!=null){
             order_item.setOrder(order);
         }
-        if(order_itemDto.getPrice()!=null){
-            order_item.setPrice(order_itemDto.getPrice());
+        if(order_itemDto.getSubtotalPrice()!=null){
+            order_item.setSubtotalPrice(order_itemDto.getSubtotalPrice());
         }
         if(order_itemDto.getQuantity()!=null){
             order_item.setQuantity(order_itemDto.getQuantity());
         }
     }
 }
+

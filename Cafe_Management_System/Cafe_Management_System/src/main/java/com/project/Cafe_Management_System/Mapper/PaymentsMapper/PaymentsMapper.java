@@ -17,14 +17,14 @@ public class PaymentsMapper {
         Payments payments=new Payments();
         payments.setOrder(order);
         payments.setPayment_method(paymentsDto.getPayment_method());
-        payments.setAmount(order.getTotal_amount());
+        payments.setAmount_paid(order.getTotal_amount());
         payments.setPayment_date(LocalDateTime.now());
         return payments;
     }
     public static PaymentsResponesDto to_Dto(Payments payments){
         PaymentsResponesDto paymentsResponesDto=new PaymentsResponesDto();
         paymentsResponesDto.setOrder_id(payments.getOrder().getOrder_id());
-        paymentsResponesDto.setAmount(payments.getAmount());
+        paymentsResponesDto.setAmount_paid(payments.getAmount_paid());
         paymentsResponesDto.setPayment_method(payments.getPayment_method());
         paymentsResponesDto.setPayment_date(payments.getPayment_date());
         return paymentsResponesDto;

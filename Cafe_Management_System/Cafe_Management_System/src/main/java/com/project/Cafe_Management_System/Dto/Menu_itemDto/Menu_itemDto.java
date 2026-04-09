@@ -1,7 +1,6 @@
 package com.project.Cafe_Management_System.Dto.Menu_itemDto;
 
 import jakarta.persistence.Column;
-import jakarta.persistence.PrePersist;
 import org.springframework.stereotype.Component;
 
 import java.time.LocalDateTime;
@@ -20,6 +19,12 @@ public class Menu_itemDto {
 
     @Column(nullable = false)
     private Integer stock_quantity;
+
+    @Column(nullable = false)
+    private Boolean isAvailable=true;
+
+    @Column(nullable = false)
+    private String imageUrl;
 
     @Column(nullable = false)
     private LocalDateTime created_at;
@@ -67,11 +72,18 @@ public class Menu_itemDto {
         this.stock_quantity = stock_quantity;
     }
 
+    public Boolean getAvailable() {
+        return isAvailable;
+    }
+
+    public void setAvailable(Boolean available) {
+        isAvailable = available;
+    }
+
     public LocalDateTime getCreated_at() {
         return created_at;
     }
-    
-    @PrePersist
+
     public void setCreated_at() {
         this.created_at = LocalDateTime.now();
     }
@@ -82,5 +94,13 @@ public class Menu_itemDto {
 
     public void setUpdate_at(LocalDateTime update_at) {
         this.update_at = update_at;
+    }
+
+    public String getImageUrl() {
+        return imageUrl;
+    }
+
+    public void setImageUrl(String imageUrl) {
+        this.imageUrl = imageUrl;
     }
 }

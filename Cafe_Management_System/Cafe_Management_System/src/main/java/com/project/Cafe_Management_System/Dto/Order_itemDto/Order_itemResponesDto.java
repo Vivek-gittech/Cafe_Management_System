@@ -9,7 +9,7 @@ public class Order_itemResponesDto {
     private String item_name;
 
     private Integer quantity;
-    private Double price;
+    private Double subtotalPrice;
 
     private Double total_amount;
 
@@ -53,12 +53,12 @@ public class Order_itemResponesDto {
         this.quantity = quantity;
     }
 
-    public Double getPrice() {
-        return price;
+    public Double getSubtotalPrice() {
+        return subtotalPrice;
     }
 
-    public void setPrice(Double price) {
-        this.price = price;
+    public void setSubtotalPrice(Double subtotalPrice) {
+        this.subtotalPrice = subtotalPrice;
     }
 
     public Double getTotal_amount() {

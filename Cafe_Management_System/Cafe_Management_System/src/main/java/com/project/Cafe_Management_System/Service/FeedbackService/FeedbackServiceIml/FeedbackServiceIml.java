@@ -4,9 +4,11 @@ import com.project.Cafe_Management_System.Dto.FeedbackDto.FeedbackDto;
 import com.project.Cafe_Management_System.Dto.FeedbackDto.FeedbackResponesDto;
 import com.project.Cafe_Management_System.Entity.CustomerEntity.Customer;
 import com.project.Cafe_Management_System.Entity.FeedbackEntity.Feedback;
+import com.project.Cafe_Management_System.Entity.OrderEntity.Order;
 import com.project.Cafe_Management_System.Mapper.FeedbackMapper.FeedbackMapper;
 import com.project.Cafe_Management_System.Repository.CustomerRepository.CustomerRepository;
 import com.project.Cafe_Management_System.Repository.FeedbackRepository.FeedbackRepository;
+import com.project.Cafe_Management_System.Repository.OrderRepository.OrderRepository;
 import com.project.Cafe_Management_System.Service.FeedbackService.FeedbackService;
 import org.springframework.stereotype.Service;
 
@@ -17,12 +19,15 @@ public class FeedbackServiceIml implements FeedbackService {
     private final FeedbackRepository feedbackRepository;
     private final FeedbackMapper feedbackMapper;
     private final CustomerRepository customerRepository;
+    private final OrderRepository orderRepository;
 
-    public FeedbackServiceIml(FeedbackRepository feedbackRepository, FeedbackMapper feedbackMapper, CustomerRepository customerRepository) {
+    public FeedbackServiceIml(FeedbackRepository feedbackRepository, FeedbackMapper feedbackMapper, CustomerRepository customerRepository, OrderRepository orderRepository) {
         this.feedbackRepository = feedbackRepository;
         this.feedbackMapper = feedbackMapper;
         this.customerRepository = customerRepository;
+        this.orderRepository = orderRepository;
     }
+
     @Override
     public List<FeedbackResponesDto> feedback_Get(){
         List<Feedback> feedback=feedbackRepository.findAll();
@@ -37,7 +42,8 @@ public class FeedbackServiceIml implements FeedbackService {
     }
     public FeedbackResponesDto feedback_Put(Integer id,FeedbackDto feedbackDto){
         Feedback feedback=feedbackRepository.findById(id).orElseThrow(()->new RuntimeException("Feedback not Found"));
-        FeedbackMapper.feedback_put(feedback,feedbackDto);
+        Order order=orderRepository.findById(feedbackDto.getOrder_id()).orElseThrow(()->new RuntimeException("Order Not Found"));
+        FeedbackMapper.feedback_put(feedback,feedbackDto,order);
         Feedback feedbackSaved=feedbackRepository.save(feedback);
         return FeedbackMapper.to_Dto(feedbackSaved);
     }

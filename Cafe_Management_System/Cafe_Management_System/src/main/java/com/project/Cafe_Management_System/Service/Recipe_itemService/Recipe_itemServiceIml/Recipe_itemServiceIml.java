@@ -52,7 +52,7 @@ public class Recipe_itemServiceIml implements Recipe_itemService {
         Recipe_item recipe_itemSaved = recipe_itemRepository.save(recipe_item);
 
         recipe_itemSaved.setTotal_bill(total_bill);
-        recipe_itemSaved.setQuantity(order_item.getQuantity());
+        recipe_itemSaved.setQuantity_required(order_item.getQuantity());
         return Recipe_itemMapper.to_Dto(recipe_itemSaved);
     }
     public Recipe_itemResponesDto recipe_Put(Integer id,Recipe_itemDto recipe_itemDto){
@@ -75,7 +75,7 @@ public class Recipe_itemServiceIml implements Recipe_itemService {
     }
 
     public double calcultion(Order_item order_item) {
-        double total_bill = order_item.getQuantity() * order_item.getPrice();
+        double total_bill = order_item.getQuantity() * order_item.getSubtotalPrice();
         return total_bill;
     }
 }

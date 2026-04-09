@@ -21,7 +21,7 @@ public class Recipe_item {
     private Ingredients ingredients;
 
     @Column(nullable = false)
-    private double quantity;
+    private double quantity_required;
 
     @Column(nullable = false)
     private double total_bill;
@@ -50,12 +50,12 @@ public class Recipe_item {
         this.ingredients = ingredients;
     }
 
-    public double getQuantity() {
-        return quantity;
+    public double getQuantity_required() {
+        return quantity_required;
     }
 
-    public void setQuantity(double quantity) {
-        this.quantity = quantity;
+    public void setQuantity_required(double quantity_required) {
+        this.quantity_required = quantity_required;
     }
 
     public double getTotal_bill() {

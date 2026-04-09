@@ -6,6 +6,7 @@ public class Recipe_itemResponesDto {
     private String item_name;
     private Double total_amount;
     private Double quantity;
+    private Double quantity_required;
 
     public String getItem_name() {
         return item_name;
@@ -30,5 +31,13 @@ public class Recipe_itemResponesDto {
 
     public void setQuantity(Double quantity) {
         this.quantity = quantity;
+    }
+
+    public Double getQuantity_required() {
+        return quantity_required;
+    }
+
+    public void setQuantity_required(Double quantity_required) {
+        this.quantity_required = quantity_required;
     }
 }

@@ -7,7 +7,7 @@ public class Order_itemDto {
     private Integer order_id;
     private Integer item_id;
     private Integer quantity;
-    private Double price;
+    private Double subtotalPrice;
 
     public Integer getOrder_item_id() {
         return order_item_id;
@@ -41,11 +41,11 @@ public class Order_itemDto {
         this.quantity = quantity;
     }
 
-    public Double getPrice() {
-        return price;
+    public Double getSubtotalPrice() {
+        return subtotalPrice;
     }
 
-    public void setPrice(Double price) {
-        this.price = price;
+    public void setSubtotalPrice(Double subtotalPrice) {
+        this.subtotalPrice = subtotalPrice;
     }
 }

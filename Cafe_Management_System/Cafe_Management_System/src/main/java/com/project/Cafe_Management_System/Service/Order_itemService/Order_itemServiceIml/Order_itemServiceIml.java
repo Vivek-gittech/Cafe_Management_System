@@ -38,7 +38,9 @@ public class Order_itemServiceIml implements Order_itemService{
         System.out.println("Menu_id"+order_itemDto.getItem_id());
         Order order=orderRepository.findById(order_itemDto.getOrder_id()).orElseThrow(()->new RuntimeException("Order Not Found"));
         Menu_item menu_item=menu_itemRepository.findById(order_itemDto.getItem_id()).orElseThrow(()->new RuntimeException("Menu Item Not Found"));
-        Order_item order_item=Order_itemMapper.to_Entity(order_itemDto,menu_item,order);
+        double subtotal=totalPrice(menu_item,order_itemDto);
+        Order_item order_item=Order_itemMapper.to_Entity(order_itemDto,menu_item,order,subtotal);
+        order_item.setSubtotalPrice(subtotal);
         Order_item order_itemSvaed=order_itemRepository.save(order_item);
         return Order_itemMapper.to_Dto(order_itemSvaed);
     }
@@ -56,5 +58,9 @@ public class Order_itemServiceIml implements Order_itemService{
             return id+"Order_item Delete Successfully";
         }
         return id+"Order_item Not Found";
+    }
+    public double totalPrice(Menu_item menu_item,Order_itemDto order_itemDto){
+        double subtotal=menu_item.getPrice()*order_itemDto.getQuantity();
+        return subtotal;
     }
 }
