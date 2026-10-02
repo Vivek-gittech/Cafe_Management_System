@@ -2,8 +2,8 @@ FROM maven:3.9.9-eclipse-temurin-21 AS build
 
 WORKDIR /app
 
-COPY Cafe_Management_System/Cafe_Management_System/pom.xml .
-COPY Cafe_Management_System/Cafe_Management_System/src ./src
+COPY pom.xml .
+COPY src ./src
 
 RUN mvn clean package -DskipTests
 
